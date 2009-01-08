@@ -1,0 +1,27 @@
+
+How to use this project:
+
+The resources/scripts directory of this project is full of small,
+simple steering files that you should run in order (pass1, pass2,
+pass3, etc.)  Each attempts to demonstrate, as simply as possible, a
+different aspect of the business of writing icetray modules.
+
+Each script has comments in it, and some reference small, simply coded
+I3Modules that are in this project.  The header files are in public/
+and the implementation files are in private/.
+
+Let us know if this is helpful...
+
+dataclass@icecube.wisc.edu
+
+
+How not to use this project:
+
+Don't dump scripts here that have lots of unused code in them,
+outdated comments, references to local data, or that don't demonstrate
+some particular aspect of the system clearly.  Don't commit sloppy
+code to this project.  This project is NOT a sandbox: it is
+documentation.  Documentation that you can run, copy, and hack.
+
+
+
