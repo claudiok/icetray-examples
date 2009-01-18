@@ -8,9 +8,10 @@ def main():
     #  Run C++ and python feature extractors in parallel
     #
     from icecube import util, icetray, dataclasses, dataio, examples
+
     from I3Tray import I3Tray
 
-    load("libDOMcalibrator")
+    icetray.load("libDOMcalibrator")
 
     #
     #  The services that provide data to the I3Muxer (multiplexer).
@@ -36,7 +37,7 @@ def main():
     #
     #  Same thing... but in python
     #
-    from modules.LessDumbFeatureExtractor import LessDumbFeatureExtractor as PyLessDumbFeatureExtractor
+    from icecube.examples.modules import LessDumbFeatureExtractor as PyLessDumbFeatureExtractor
 
     tray.AddModule(PyLessDumbFeatureExtractor, "pylessdumbfe",
                    Launches_in = "InIceRawData",
