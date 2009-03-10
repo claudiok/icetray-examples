@@ -6,8 +6,10 @@
 #include <phys-services/I3Calculator.h>
 #include <dataclasses/physics/I3Particle.h>
 
-#include <TFile.h>
-#include <TH1D.h>
+#ifdef I3_USE_ROOT
+  #include <TFile.h>
+  #include <TH1D.h>
+#endif
 
 using namespace std;
 
@@ -27,9 +29,10 @@ DeltaAngle::DeltaAngle(const I3Context& context) :
   key_rhs_ = "UNSET";
   AddParameter("rhs", "Right hand side name", key_rhs_);
 
-  th1_fname_ = "DeltaAngle";
-  AddParameter("th1_fname", "Filename for TH1", th1_fname_);
-
+  #ifdef I3_USE_ROOT
+	th1_fname_ = "DeltaAngle";
+	AddParameter("th1_fname", "Filename for TH1", th1_fname_);
+  #endif
 }
 
 void DeltaAngle::Configure()
@@ -79,6 +82,7 @@ DeltaAngle::Physics(I3FramePtr frame)
 void
 DeltaAngle::Finish()
 {
+#ifdef I3_USE_ROOT
   TFile tfile(th1_fname_.c_str(), "UPDATE", "DeltaAngle module output", 0);
 
   string histotitle = key_lhs_ + " vs. " + key_rhs_;
@@ -89,5 +93,5 @@ DeltaAngle::Finish()
 
   th1d.Write();
   tfile.Close();
-
+#endif
 }

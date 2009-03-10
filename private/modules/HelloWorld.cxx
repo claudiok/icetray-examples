@@ -8,9 +8,6 @@
 
 #include <dataclasses/physics/I3Particle.h>
 
-#include <TFile.h>
-#include <TTree.h>
-
 using namespace std;
 
 // This is necessary, it registers the module's existence with the
