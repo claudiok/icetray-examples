@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 def rootlogon() :
     from ROOT import gROOT, gStyle, kBlue, kWhite, kBlack
