@@ -5,9 +5,14 @@ def main():
     Note that this cpp service passes as easily to python modules as it does to
     c++ modules.
     """
+    import sys
+
     from icecube import icetray, dataclasses, phys_services
 
-    from icecube.examples.modules import UseRandom
+    try:
+        from icecube.examples.modules import UseRandom
+    except ImportError:
+        sys.exit(0)
 
     from I3Tray import I3Tray
     from os.path import expandvars

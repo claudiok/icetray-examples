@@ -37,7 +37,11 @@ def main():
     #
     #  Same thing... but in python
     #
-    from icecube.examples.modules import LessDumbFeatureExtractor as PyLessDumbFeatureExtractor
+    import sys
+    try:
+        from icecube.examples.modules import LessDumbFeatureExtractor as PyLessDumbFeatureExtractor
+    except ImportError:
+        sys.exit(0)
 
     tray.AddModule(PyLessDumbFeatureExtractor, "pylessdumbfe",
                    Launches_in = "InIceRawData",

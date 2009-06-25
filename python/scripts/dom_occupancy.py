@@ -5,7 +5,12 @@ def main():
     Make a dom occupancy plot from some 2007 experimental data
     """
 
-    import sys, numpy, pylab
+    import sys
+    try:
+        import numpy, pylab
+    except ImportError:
+        sys.exit(0)
+    
     from icecube import icetray, dataclasses, dataio, util
 
 

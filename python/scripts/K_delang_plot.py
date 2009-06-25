@@ -18,7 +18,10 @@ def main():
     from os.path import expandvars
     import sys
 
-    from icecube.examples.modules import DeltaAngle
+    try:
+        from icecube.examples.modules import DeltaAngle
+    except ImportError:
+        sys.exit(0)
 
     tray = I3Tray()
 
