@@ -38,7 +38,8 @@ tray.AddModule("TrashCan","see_yas")
 try:
     tray.Execute(30)
     tray.Finish()
-    sys.exit(1)
 except:
     print "Tray threw an exception as it should have"
     sys.exit(0)
+else:
+    sys.exit(1)
