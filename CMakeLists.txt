@@ -35,7 +35,6 @@ i3_test_scripts(resources/scripts/pass1.py
   resources/scripts/pass4.py
   resources/scripts/pass4a_delete_unregistered.py
   resources/scripts/pass5.py
-  resources/scripts/pass5_eventviewer.py
   resources/scripts/pass6_HelloWorld.py
   resources/scripts/pass7_HelloConfiguration.py
   resources/scripts/pass7_PutParticle.py
