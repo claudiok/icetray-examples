@@ -23,6 +23,10 @@ def main():
     except ImportError:
         sys.exit(0)
 
+    if len(sys.argv) < 2:
+        print "Usage:  %s somefile.i3" % sys.argv[0]
+        sys.exit(0)
+
     tray = I3Tray()
 
     tray.AddModule("I3Reader", "drd",
