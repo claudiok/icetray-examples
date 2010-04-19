@@ -12,6 +12,7 @@ class LessDumbFeatureExtractor(icetray.I3Module):
         self.AddParameter("Pulses_out",
                           "Where to put FE Hits",
                           "fepulses")
+        self.AddOutBox("OutBox")
 
     def Configure(self):
         self.launchesname = self.GetParameter("Launches_in")
