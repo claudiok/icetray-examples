@@ -17,6 +17,7 @@ def main():
         def __init__(self, context):
             I3Module.__init__(self, context)
             self.AddParameter("values", "key/value pairs to put into the frame", None)
+            self.AddOutBox("OutBox")
 
         def Configure(self):
             self.d = self.GetParameter("values")
