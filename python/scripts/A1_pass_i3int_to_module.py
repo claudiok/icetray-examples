@@ -22,8 +22,6 @@ def main():
     tray.AddModule("GetI3Int","giint",
                    obj = i3int)
 
-    tray.AddModule("TrashCan", "trash")
-
     #
     # Doesn't actually do anything... just demonstrates that the I3Int
     # makes it through to The GetI3Int module
