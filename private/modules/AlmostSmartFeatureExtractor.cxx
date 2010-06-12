@@ -8,7 +8,6 @@
 
 I3_MODULE(AlmostSmartFeatureExtractor);
 
-typedef I3Map<OMKey,I3Vector<I3Waveform> > Response;
 
 AlmostSmartFeatureExtractor::
 AlmostSmartFeatureExtractor(const I3Context& context) : I3Module(context)
@@ -22,13 +21,13 @@ void AlmostSmartFeatureExtractor::Configure()
 
 void AlmostSmartFeatureExtractor::Physics(I3FramePtr frame)
 {
-  const Response& inIceResponse = 
-    frame->Get<Response>("CalibratedATWD");
+  const I3WaveformSeriesMap& response = 
+    frame->Get<I3WaveformSeriesMap>("CalibratedATWD");
 
   I3RecoHitSeriesMapPtr orhsm(new I3RecoHitSeriesMap());
 
-  for(Response::const_iterator iter = inIceResponse.begin() ;
-      iter != inIceResponse.end() ; 
+  for(I3WaveformSeriesMap::const_iterator iter = response.begin() ;
+      iter != response.end() ; 
       iter++)
     {
       assert(iter->second.size() > 0);
