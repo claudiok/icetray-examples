@@ -13,9 +13,6 @@ def main():
 
     icetray.load("libDOMcalibrator")
 
-    #
-    #  The services that provide data to the I3Muxer (multiplexer).
-    #
     tray = I3Tray()
 
     tray.AddModule("I3Reader","i3reader",

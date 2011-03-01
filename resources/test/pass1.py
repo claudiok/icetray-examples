@@ -29,9 +29,6 @@ load("libexamples")
 tools = expandvars("$I3_PORTS")
 runfile = tools + "/test-data/2006data/Run00089508.i3.gz"
 
-#
-#  The services that provide data to the I3Muxer (multiplexer).
-#
 tray = I3Tray()
 
 tray.AddModule("I3Reader","i3reader")(

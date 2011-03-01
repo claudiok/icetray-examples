@@ -19,9 +19,6 @@ load("libexamples")
 
 tray = I3Tray()
 
-#
-# Default configuration of the I3Muxer and the I3ReaderServices. 
-#
 tray.AddModule("I3Reader","i3reader")(
     ("Filename", "pass4.i3"),
     ("SkipKeys", ["llh.*", "mutineer"])
