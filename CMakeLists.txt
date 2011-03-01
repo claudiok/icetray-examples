@@ -29,25 +29,25 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
 
 add_subdirectory(private/pybindings)
 
-i3_test_scripts(resources/scripts/pass1.py
-  resources/scripts/pass2.py
-  resources/scripts/pass3.py
-  resources/scripts/pass4.py
-  resources/scripts/pass4a_delete_unregistered.py
-  resources/scripts/pass5.py
-  resources/scripts/pass6_HelloWorld.py
-  resources/scripts/pass7_HelloConfiguration.py
-  resources/scripts/pass7_PutParticle.py
-  resources/scripts/pass8_Smear.py
-  resources/scripts/pass9_DeltaAngle.py
-  resources/scripts/passA_smearing_and_TH1s.py
-  resources/scripts/passC_singleton_fibonacci.py
-  resources/scripts/passD_singleton_fibonacci_is_a_bad_idea.py
-  resources/scripts/passE_one_fibonacci_per_module.py
-  resources/scripts/passF_fibonacci_is_hiding_at_different_name.py
-  resources/scripts/passG_module_looks_for_fibonacci_in_particular_place.py
-  resources/scripts/passH_one_fibonacci_one_module.py
-  resources/scripts/passI_verify_not_at_default_location1.py
+i3_test_scripts(resources/test/pass1.py
+  resources/test/pass2.py
+  resources/test/pass3.py
+  resources/test/pass4.py
+  resources/test/pass4a_delete_unregistered.py
+  resources/test/pass5.py
+  resources/test/pass6_HelloWorld.py
+  resources/test/pass7_HelloConfiguration.py
+  resources/test/pass7_PutParticle.py
+  resources/test/pass8_Smear.py
+  resources/test/pass9_DeltaAngle.py
+  resources/test/passA_smearing_and_TH1s.py
+  resources/test/passC_singleton_fibonacci.py
+  resources/test/passD_singleton_fibonacci_is_a_bad_idea.py
+  resources/test/passE_one_fibonacci_per_module.py
+  resources/test/passF_fibonacci_is_hiding_at_different_name.py
+  resources/test/passG_module_looks_for_fibonacci_in_particular_place.py
+  resources/test/passH_one_fibonacci_one_module.py
+  resources/test/passI_verify_not_at_default_location1.py
 
   python/scripts/A0_new_config_syntax.py
   python/scripts/A1_pass_i3int_to_module.py
