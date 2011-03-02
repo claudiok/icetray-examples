@@ -37,12 +37,8 @@ tray.AddService("I3XMLChannelID2OMKeyFactory","channelid2omkey")(
     ("infile",workspace + "/amanda-core/resources/channel_ids.xml")
     )
 
-tray.AddService("I3ReaderServiceFactory","reader")(
+tray.AddModule("I3Reader","reader")(
     ("FileName",infile),
-    ("OmitGeometry",True),
-    ("OmitCalibration",True),
-    ("OmitStatus",True),
-    ("SkipMissingDrivingTime",True),
     ("SkipKeys",["I3DST","TWRDAQData*"])
     )
 
@@ -71,7 +67,7 @@ tray.AddService("I3PayloadParsingEventDecoderFactory","i3eventdecode")(
     ("specialdataoms",[OMKey(0,91),OMKey(0,92)])
     )
 
-tray.AddModule("I3Muxer","muxme")
+tray.AddModule("I3MetaSynth","muxme")
 
 tray.AddModule("I3FrameBufferDecode","i3decode")(
    ("BufferID","I3DAQData")
