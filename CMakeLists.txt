@@ -29,6 +29,13 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
 
 add_subdirectory(private/pybindings)
 
+if(USE_ROOT)
+  set(ROOT_TESTS 
+	resources/test/pass9_DeltaAngle.py
+	resources/test/passA_smearing_and_TH1s.py
+  )
+endif(USE_ROOT)
+
 i3_test_scripts(resources/test/pass1.py
   resources/test/pass2.py
   resources/test/pass3.py
@@ -39,8 +46,6 @@ i3_test_scripts(resources/test/pass1.py
   resources/test/pass7_HelloConfiguration.py
   resources/test/pass7_PutParticle.py
   resources/test/pass8_Smear.py
-  resources/test/pass9_DeltaAngle.py
-  resources/test/passA_smearing_and_TH1s.py
   resources/test/passC_singleton_fibonacci.py
   resources/test/passD_singleton_fibonacci_is_a_bad_idea.py
   resources/test/passE_one_fibonacci_per_module.py
@@ -48,6 +53,7 @@ i3_test_scripts(resources/test/pass1.py
   resources/test/passG_module_looks_for_fibonacci_in_particular_place.py
   resources/test/passH_one_fibonacci_one_module.py
   resources/test/passI_verify_not_at_default_location1.py
+  ${ROOT_TESTS}
 
   python/scripts/A0_new_config_syntax.py
   python/scripts/A1_pass_i3int_to_module.py
