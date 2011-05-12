@@ -15,7 +15,7 @@ class LessDumbFeatureExtractor : public I3Module
   void Finish();
 
  private:
-  string launches_;
+  std::string launches_;
 };
 
 #endif

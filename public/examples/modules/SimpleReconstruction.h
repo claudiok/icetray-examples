@@ -28,8 +28,8 @@ class SimpleReconstruction : public I3Module
  private:
   
   // these variables will hold the parameters that we take from the user
-  string inputHits_;
-  string outputResult_;
+  std::string inputHits_;
+  std::string outputResult_;
 };
 
 #endif
