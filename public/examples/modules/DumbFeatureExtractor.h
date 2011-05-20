@@ -18,8 +18,8 @@ class DumbFeatureExtractor : public I3Module
   void FillSeries(I3RecoHitSeries&, const I3DOMLaunch&);
 
  private:
-  string inputResponse_;
-  string outputSeries_;
+  std::string inputResponse_;
+  std::string outputSeries_;
   bool featureExtractIceTop_; // if true run on IceTop, otherwise skip it
 };
 
