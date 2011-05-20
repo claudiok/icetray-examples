@@ -42,7 +42,7 @@ void LessDumbFeatureExtractor::Physics(I3FramePtr frame)
 	  assert(iter->second.size() > 0);
 	  const I3DOMLaunch& launch = iter->second[0];
 
-	  const vector<int>& waveform = launch.GetRawATWD(0);
+	  const std::vector<int>& waveform = launch.GetRawATWD(0);
 
 	  assert(waveform.size() > 20);
 	  int maxBin = 0;

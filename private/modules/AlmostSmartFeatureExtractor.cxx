@@ -6,6 +6,8 @@
 #include <icetray/I3Frame.h>
 #include <dataclasses/physics/I3RecoHit.h>
 
+using namespace std;
+
 I3_MODULE(AlmostSmartFeatureExtractor);
 
 
@@ -31,7 +33,7 @@ void AlmostSmartFeatureExtractor::Physics(I3FramePtr frame)
       iter++)
     {
       assert(iter->second.size() > 0);
-      const vector<double> & waveform = iter->second[0].GetWaveform();
+      const std::vector<double> & waveform = iter->second[0].GetWaveform();
 
       assert(waveform.size() > 20);
       int maxBin = 0;

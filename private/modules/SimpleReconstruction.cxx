@@ -115,7 +115,7 @@ void SimpleReconstruction::Physics(I3FramePtr frame)
 
   // putting it in the frame
   frame->Put(outputResult_,particle);
-  frame->Put(string(outputResult_ + "Params"),result);
+  frame->Put(std::string(outputResult_ + "Params"),result);
   
   // giving the frame back to the framework
   PushFrame(frame,"OutBox");
