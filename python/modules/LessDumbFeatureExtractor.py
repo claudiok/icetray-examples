@@ -19,7 +19,7 @@ class LessDumbFeatureExtractor(icetray.I3Module):
         self.ohitsname = self.GetParameter("Hits_out")
         self.opulsesname = self.GetParameter("Pulses_out")
     
-    def Physics(self, frame):
+    def DAQ(self, frame):
         launches = frame.Get(self.launchesname)
 
         if not launches:

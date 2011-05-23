@@ -31,10 +31,11 @@ runfile = tools + "/test-data/2006data/Run00089508.i3.gz"
 
 tray = I3Tray()
 
-tray.AddModule("I3Reader","i3reader")(
-    ("Filename", runfile),
-    ("SkipKeys",["I3PfFilterMask"])
-    )
+tray.AddModule("I3Reader","i3reader", Filename=runfile, SkipKeys=["I3PfFilterMask"])
+
+# This file is super old
+tray.AddModule("QConverter", "qify")
+tray.AddModule(lambda fr: False, "dropps") # Drop all existing P-frames
 
 #
 # A DOMCalibrator.  Obviously.

@@ -13,7 +13,7 @@ class DumbFeatureExtractor : public I3Module
 
   void Configure();
   
-  void Physics(I3FramePtr frame);
+  void DAQ(I3FramePtr frame);
 
   void FillSeries(I3RecoHitSeries&, const I3DOMLaunch&);
 

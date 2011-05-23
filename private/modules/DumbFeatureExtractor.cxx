@@ -32,7 +32,7 @@ void DumbFeatureExtractor::Configure()
   GetParameter("FeatureExtractIceTop",featureExtractIceTop_);
 }
 
-void DumbFeatureExtractor::Physics(I3FramePtr frame)
+void DumbFeatureExtractor::DAQ(I3FramePtr frame)
 {
   // in ice
   {

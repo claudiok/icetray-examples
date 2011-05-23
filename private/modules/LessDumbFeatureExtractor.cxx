@@ -25,7 +25,7 @@ void LessDumbFeatureExtractor::Configure()
   GetParameter("Launches",launches_);
 }
 
-void LessDumbFeatureExtractor::Physics(I3FramePtr frame)
+void LessDumbFeatureExtractor::DAQ(I3FramePtr frame)
 {
   const I3DOMLaunchSeriesMapConstPtr inIceResponse = 
     frame->Get<I3DOMLaunchSeriesMapConstPtr>(launches_);

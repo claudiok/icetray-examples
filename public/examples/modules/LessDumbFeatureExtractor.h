@@ -8,7 +8,7 @@ class LessDumbFeatureExtractor : public I3Module
  public:
   LessDumbFeatureExtractor(const I3Context& context);
 
-  void Physics(I3FramePtr frame);
+  void DAQ(I3FramePtr frame);
 
   void Configure();
 
