@@ -55,6 +55,9 @@ tray.AddModule("DumbFeatureExtractor","dumbfe")
 #
 tray.AddModule("Dump","dump")
 
+# Prepare for high-level processing
+tray.AddModule("I3NullSplitter","nullsplit")
+
 #
 # And this is the magic writer.  We will make it work harder later.
 #
