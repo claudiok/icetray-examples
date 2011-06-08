@@ -21,7 +21,7 @@ void AlmostSmartFeatureExtractor::Configure()
 {
 }
 
-void AlmostSmartFeatureExtractor::Physics(I3FramePtr frame)
+void AlmostSmartFeatureExtractor::DAQ(I3FramePtr frame)
 {
   const I3WaveformSeriesMap& response = 
     frame->Get<I3WaveformSeriesMap>("CalibratedATWD");

@@ -8,7 +8,7 @@ class AlmostSmartFeatureExtractor : public I3Module
  public:
   AlmostSmartFeatureExtractor(const I3Context& context);
 
-  void Physics(I3FramePtr frame);
+  void DAQ(I3FramePtr frame);
 
   void Configure();
 
