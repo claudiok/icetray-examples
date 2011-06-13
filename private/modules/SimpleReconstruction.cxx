@@ -2,7 +2,7 @@
 #include "examples/modules/SimpleReconstructionParams.h"
 #include <dataclasses/physics/I3Particle.h>
 #include <dataclasses/geometry/I3Geometry.h>
-#include <dataclasses/physics/I3RecoHit.h>
+#include <dataclasses/physics/I3RecoPulse.h>
 #include <icetray/I3Frame.h>
 
 // This macro is used to export the module name to the framework
@@ -49,7 +49,8 @@ void SimpleReconstruction::Configure()
 void SimpleReconstruction::Physics(I3FramePtr frame)
 {
   // finding the hits.
-  const I3RecoHitSeriesMap& hits = frame->Get<I3RecoHitSeriesMap>(inputHits_);
+  I3RecoPulseSeriesMapConstPtr hits =
+     frame->Get<I3RecoPulseSeriesMapConstPtr>(inputHits_);
 
   // finding the geometry.  The geometry is special 'cause you
   // don't need a key for it.
@@ -62,8 +63,8 @@ void SimpleReconstruction::Physics(I3FramePtr frame)
   double avg_z = 0;
   double avg_t = 0;
   double nHit = 0.0;
-  for(I3RecoHitSeriesMap::const_iterator iter = hits.begin() ; 
-      iter != hits.end() ; 
+  for(I3RecoPulseSeriesMap::const_iterator iter = hits->begin() ; 
+      iter != hits->end() ; 
       iter++)
     {
       I3OMGeoMap::const_iterator foundGeometry = 
@@ -75,8 +76,8 @@ void SimpleReconstruction::Physics(I3FramePtr frame)
 		    iter->first.GetOM());
 	}
 
-      const I3RecoHitSeries& rhs= iter->second;
-      for(I3RecoHitSeries::const_iterator hitIter = rhs.begin() ; 
+      const I3RecoPulseSeries& rhs= iter->second;
+      for(I3RecoPulseSeries::const_iterator hitIter = rhs.begin() ; 
 	  hitIter != rhs.end() ; 
 	  hitIter++)
 	{
