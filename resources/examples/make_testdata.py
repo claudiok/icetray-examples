@@ -28,7 +28,7 @@ tray = I3Tray()
 
 ## Some OMKey/channel translation services
 tray.AddService("I3XMLOMKey2MBIDFactory","omkey2mbid")(
-    ("infile",workspace + "/phys-services/resources/mainboard_ids.xml")
+    ("infile",workspace + "/phys-services/resources/mainboard_ids.xml.gz")
     )
 tray.AddService("TWRXMLTWRKey2ChannelIDFactory","twrkey2channelid")(
     ("files",[workspace + "/twr-decode/resources/ChannelID_TWRKey.xml"])
