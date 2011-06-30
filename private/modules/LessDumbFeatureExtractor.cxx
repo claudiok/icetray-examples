@@ -1,6 +1,6 @@
 #include <examples/modules/LessDumbFeatureExtractor.h>
 
-#include <dataclasses/OMKey.h>
+#include <icetray/OMKey.h>
 #include <dataclasses/I3Map.h>
 #include <dataclasses/physics/I3DOMLaunch.h>
 #include <icetray/I3Frame.h>
