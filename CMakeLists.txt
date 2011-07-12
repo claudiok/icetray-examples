@@ -64,10 +64,6 @@ i3_test_scripts(resources/test/pass1.py
   python/scripts/E_module_fancy_parameter_in_python.py
   python/scripts/F_use_randomservice.py
   python/scripts/G_pass_randomservice_as_param_to_cpp_module.py
-  python/scripts/H_pass_randomservice_as_param_to_pymodule.py
   python/scripts/I_cpp_uses_python_impl_of_randomservice.py
   
-  python/scripts/K_delang_plot.py
-  python/scripts/L_PyLessDumbFeatureExtractor.py
-  python/scripts/dom_occupancy.py
   )
