@@ -7,11 +7,9 @@ import sys
 load("libdataclasses")
 load("libdataio")
 load("libphys-services")
-load("libtwr-decode")
 load("libdaq-decode")
 load("libpayload-parsing")
 load("libI3Db")
-load("libamanda-core")
 load("libDOMcalibrator")
 load("libicepick")
 
@@ -19,7 +17,7 @@ workspace = expandvars("$I3_SRC")
 
 dbserver = "dbs2.icecube.wisc.edu"
 
-if len(sys.argv) != 2 and sys.argv[1].find("Raw") < 0 :
+if len(sys.argv) != 2:
     print "Must run with an arguement specifying the full path of the PFRaw file."
     sys.exit(1)
 infile = sys.argv[1]
@@ -27,76 +25,73 @@ infile = sys.argv[1]
 tray = I3Tray()
 
 ## Some OMKey/channel translation services
-tray.AddService("I3XMLOMKey2MBIDFactory","omkey2mbid")(
-    ("infile",workspace + "/phys-services/resources/mainboard_ids.xml.gz")
-    )
-tray.AddService("TWRXMLTWRKey2ChannelIDFactory","twrkey2channelid")(
-    ("files",[workspace + "/twr-decode/resources/ChannelID_TWRKey.xml"])
-    )
-tray.AddService("I3XMLChannelID2OMKeyFactory","channelid2omkey")(
-    ("infile",workspace + "/amanda-core/resources/channel_ids.xml")
-    )
 
-tray.AddModule("I3Reader","reader")(
-    ("FileName",infile),
-    ("SkipKeys",["I3DST","TWRDAQData*"])
-    )
+tray.AddService("I3XMLOMKey2MBIDFactory","omkey2mbid",
+                infile=workspace + "/phys-services/resources/mainboard_ids.xml.gz")
 
-tray.AddService("I3DbGeometryServiceFactory","geometry")(
-    ("host",dbserver)
-    )
+tray.AddModule("I3Reader","reader",
+               fileName = infile,
+               )
 
-tray.AddService("I3DbCalibrationServiceFactory","calibration")(
-    ("host",dbserver)
-    )
+tray.AddService("I3DbGeometryServiceFactory","geometry",
+                host = dbserver,
+                )
 
-tray.AddService("I3DbDetectorStatusServiceFactory","status")(
-    ("host",dbserver)
-    )
+tray.AddService("I3DbCalibrationServiceFactory","calibration",
+                host = dbserver,
+                )
 
-## Decoding services
-#tray.AddService("TWRStandardDAQEventDecoderFactory","twreventdecode")(
-#   ("headerid","TWRDAQEventHeader"),
-#    )
+tray.AddService("I3DbDetectorStatusServiceFactory","status",
+                host = dbserver
+                )
 
-tray.AddService("I3PayloadParsingEventDecoderFactory","i3eventdecode")(
-    ("Year",2007),
-    ("headerid",""),
-    ("triggerid",""),
-    ("specialdataid","SyncPulseMap"),
-    ("specialdataoms",[OMKey(0,91),OMKey(0,92)])
-    )
+tray.AddService("I3PayloadParsingEventDecoderFactory","i3eventdecode",
+                )
 
 tray.AddModule("I3MetaSynth","muxme")
 
-tray.AddModule("I3FrameBufferDecode","i3decode")(
-   ("BufferID","I3DAQData")
-   )
 
-#tray.AddModule("TWRFrameBufferDecode","twrdecode")(
-#   ("BufferID","TWRDAQData")
-#   )
+tray.AddModule("QConverter", "qify")
+#tray.AddModule("Dump","dump")
 
-hitThreshold = 20
+def data_check(frame):
+    if frame.Has("I3DAQData"):
+        return True
+    else:
+        return False
 
-tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter")(
-    ("DiscardEvents",True),
-    ("HitThresholdLow", hitThreshold)
-    )
+tray.AddModule(data_check,"daqthere",Streams=[icetray.I3Frame.DAQ])
+
+tray.AddModule("I3FrameBufferDecode","i3decode",
+               BufferID = "I3DAQData"
+               )
+
+#tray.AddModule("I3DOMcalibrator","calibrate-inice",
+#               InputRawDataName = "InIceRawData"
+#               )
 
 
-tray.AddModule("I3DOMcalibrator","calibrate-inice")(
-    ("InputRawDataName","InIceRawData")
-    )
+tray.AddModule("I3NullSplitter", "fullevent")
 
-tray.AddModule("I3Writer","writer")(
-    ("SkipKeys",["I3DAQData","TWRDAQData*","ToI","cascade-linefit","filterMask","iclinefit","moonfit"]),
-    ("filename","2007_JEB_DATA.i3")
-    )
+hitThreshold = 10
+tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter",
+               DiscardEvents = True,
+               HitThresholdLow = hitThreshold
+               )
 
-tray.AddModule("Dump","dump")
+
+skippers = ["I3DAQData",
+            "moonfit"]
+
+tray.AddModule("I3Writer","writer",
+               SkipKeys = skippers,
+               filename = "TEST_DATA.i3",
+                DropOrphanStreams=[icetray.I3Frame.DAQ]
+               )
+
+#tray.AddModule("Dump","dump2")
 
 tray.AddModule("TrashCan","trash")
 
-tray.Execute(500)
+tray.Execute(20)
 tray.Finish()
