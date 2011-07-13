@@ -77,6 +77,10 @@ tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter",
                Streams = [icetray.I3Frame.DAQ]
                )
 
+## you could run the null splitter at this point and generate
+##   empty p frames after each q frame...
+
+#tray.AddModule("I3NullSplitter", "fullevent")
 
 skippers = ["I3DAQData",
             "moonfit"]
