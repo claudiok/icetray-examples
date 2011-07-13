@@ -48,10 +48,10 @@ tray.AddService("I3DbDetectorStatusServiceFactory","status",
 tray.AddService("I3PayloadParsingEventDecoderFactory","i3eventdecode",
                 )
 
-tray.AddModule("I3MetaSynth","muxme")
-
 
 tray.AddModule("QConverter", "qify")
+tray.AddModule("I3MetaSynth","muxme")
+
 #tray.AddModule("Dump","dump")
 
 def data_check(frame):
@@ -66,12 +66,12 @@ tray.AddModule("I3FrameBufferDecode","i3decode",
                BufferID = "I3DAQData"
                )
 
+tray.AddModule("Remix", "remix");
+
 #tray.AddModule("I3DOMcalibrator","calibrate-inice",
 #               InputRawDataName = "InIceRawData"
 #               )
 
-
-tray.AddModule("I3NullSplitter", "fullevent")
 
 hitThreshold = 10
 tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter",
