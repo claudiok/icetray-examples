@@ -66,12 +66,11 @@ tray.AddModule("I3FrameBufferDecode","i3decode",
                BufferID = "I3DAQData"
                )
 
+tray.AddModule("I3DOMcalibrator","calibrate-inice",
+               InputRawDataName = "InIceRawData"
+               )
+
 tray.AddModule("Remix", "remix");
-
-#tray.AddModule("I3DOMcalibrator","calibrate-inice",
-#               InputRawDataName = "InIceRawData"
-#               )
-
 
 hitThreshold = 10
 tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter",
