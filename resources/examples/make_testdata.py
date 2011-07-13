@@ -49,7 +49,7 @@ tray.AddService("I3PayloadParsingEventDecoderFactory","i3eventdecode",
                 )
 
 
-tray.AddModule("QConverter", "qify")
+tray.AddModule("QConverter", "qify", WritePFrame=False)
 tray.AddModule("I3MetaSynth","muxme")
 
 #tray.AddModule("Dump","dump")
@@ -70,12 +70,11 @@ tray.AddModule("I3DOMcalibrator","calibrate-inice",
                InputRawDataName = "InIceRawData"
                )
 
-tray.AddModule("Remix", "remix");
-
 hitThreshold = 10
 tray.AddModule("I3IcePickModule<I3PickRawNHitEventFilter>","filter",
                DiscardEvents = True,
-               HitThresholdLow = hitThreshold
+               HitThresholdLow = hitThreshold,
+               Streams = [icetray.I3Frame.DAQ]
                )
 
 
@@ -85,7 +84,6 @@ skippers = ["I3DAQData",
 tray.AddModule("I3Writer","writer",
                SkipKeys = skippers,
                filename = "TEST_DATA.i3",
-                DropOrphanStreams=[icetray.I3Frame.DAQ]
                )
 
 #tray.AddModule("Dump","dump2")
