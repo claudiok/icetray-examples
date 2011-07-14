@@ -28,24 +28,25 @@ tray = I3Tray()
 #
 # Default configuration of the I3Reader
 #
-tray.AddModule("I3Reader","i3reader")(
-    ("Filename", "pass1.i3"),
-    )
+tray.AddModule("I3Reader","i3reader",
+               Filename = "pass1.i3",
+               )
 
 #
 # Aloha Honolulu!
 #
-tray.AddModule("HelloWorld", "hello")(
-    ("Where", "Honolulu"),
-    ("SayWhat", "Aloha")
-    )
+tray.AddModule("HelloWorld", "hello",
+               Where = "Honolulu",
+               SayWhat = "Aloha"
+               )
 
 #
 # Default I3Writer/Dump/Trash configuration
 #
-tray.AddModule("I3Writer","writer")(
-    ("filename", "pass6.i3"),
-    )
+tray.AddModule("I3Writer","writer",
+               filename = "pass6.i3",
+               )
+
 tray.AddModule("Dump","dump")
 tray.AddModule("TrashCan","adios")
 

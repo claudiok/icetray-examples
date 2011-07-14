@@ -19,30 +19,30 @@ load("libexamples")
 
 tray = I3Tray()
 
-tray.AddModule("I3Reader","i3reader")(
-    ("Filename", "pass4.i3"),
-    ("SkipKeys", ["llh.*", "mutineer"])
-    )
+tray.AddModule("I3Reader","i3reader",
+               Filename = "pass4.i3",
+               SkipKeys = ["llh.*", "mutineer"]
+               )
 
 tray.AddService("I3SPRNGRandomServiceFactory", "random")
 
-tray.AddModule("PutParticle", "putter")(
-    ("Zenith", 0),
-    ("Azimuth", 0),
-    ("Where", "zero_particle")
-    )
+tray.AddModule("PutParticle", "putter",
+               Zenith = 0,
+               Azimuth = 0,
+               Where = "zero_particle"
+               )
 
-tray.AddModule("Smear", "smear")(
-    ("Src", "zero_particle"),
-    ("Dst", "smeared_particle"),
-    ("Mean", 0.0),
-    ("Constant", 0,0),
-    ("Sigma", 0.5)
-    )
+tray.AddModule("Smear", "smear",
+               Src = "zero_particle",
+               Dst =  "smeared_particle",
+               Mean = 0.0,
+               Constant = 0.0,
+               Sigma = 0.5
+               )
     
-tray.AddModule("I3Writer", "writer")(
-    ("filename", "smeared.i3")
-    )
+tray.AddModule("I3Writer", "writer",
+               filename = "smeared.i3"
+               )
 
 tray.AddModule("TrashCan","see_yas")
 

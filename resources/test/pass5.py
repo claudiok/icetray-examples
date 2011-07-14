@@ -39,15 +39,15 @@ load("libexamples")
 
 tray = I3Tray()
 
-tray.AddModule("I3Reader","reader")(
-    ("Filename", "pass4.i3"),
-    ("SkipKeys", ["mutineer"])
-    )
+tray.AddModule("I3Reader","reader",
+               Filename = "pass4.i3",
+               SkipKeys = ["mutineer"]
+               )
 
-tray.AddModule("I3Writer","writer")(
-    ("filename", "pass5.i3"),
-    ("SkipKeys", ["IceTopRawData", "IceTopRecoHitSeries"])
-    )
+tray.AddModule("I3Writer","writer",
+               filename = "pass5.i3",
+               SkipKeys = ["IceTopRawData", "IceTopRecoHitSeries"]
+               )
 
 # the usual Dump -> Trash
 tray.AddModule("Dump","dump")

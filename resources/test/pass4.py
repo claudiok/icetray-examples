@@ -25,9 +25,9 @@ load("libmutineer")
 tray = I3Tray()
 
 # The reader
-tray.AddModule("I3Reader","reader")(
-    ("Filename", "pass1.i3")
-    )
+tray.AddModule("I3Reader","reader",
+               Filename = "pass1.i3"
+               )
 
 # The Mutineer module just puts things in the frame that we dont have
 # code for.  We filter this thing out later.
@@ -35,9 +35,9 @@ tray.AddModule("MutineerModule", "arrr")
 
 # Write the data with our new reconstruction.  Same usage of the
 # writer as in pass1.
-tray.AddModule("I3Writer","writer")(
-    ("filename", "pass4.i3")
-    )
+tray.AddModule("I3Writer","writer",
+               filename =  "pass4.i3"
+               )
 
 #
 # This is the usual Dump + TrashCan idiom at the end.  Watch for the

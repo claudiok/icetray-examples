@@ -24,7 +24,7 @@ HelloConfiguration::HelloConfiguration(const I3Context& context) :
   // They get recorded in the .i3 file and are helpful later.
   
   an_int_ = 2;
-  AddParameter("mtgs/yr", 
+  AddParameter("mtgs_yr", 
 	       "Number of collaboration meetings per year", 
 	       an_int_);
 
@@ -72,7 +72,7 @@ void HelloConfiguration::Configure()
 {
   // this fetches the configured values from the steering file and
   // puts them into the local variables.
-  GetParameter("mtgs/yr", an_int_);
+  GetParameter("mtgs_yr", an_int_);
   GetParameter("naps", a_bool_);
   GetParameter("COG", an_omkey_);
   //

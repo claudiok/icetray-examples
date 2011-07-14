@@ -23,18 +23,18 @@ load("libdataio")
 tray = I3Tray()
 
 # The reader
-tray.AddModule("I3Reader","reader")(
-    ("Filename", "pass4.i3")
-    )
+tray.AddModule("I3Reader","reader",
+               Filename =  "pass4.i3"
+               )
 
 # This should skip things that aren't registered... specifically the mutineer
 # code for.  We filter this thing out later.
 tray.AddModule("DeleteUnregistered", "deleter")
 
 # verify that it was skipped
-tray.AddModule("FrameCheck", "checker")(
-    ("Ensure_Physics_Hasnt", ["mutineer"])
-    )
+tray.AddModule("FrameCheck", "checker",
+               Ensure_Physics_Hasnt =  ["mutineer"]
+               )
 
 tray.AddModule("Dump","dump")
 

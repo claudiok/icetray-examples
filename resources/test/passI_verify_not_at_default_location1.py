@@ -22,10 +22,10 @@ tray = I3Tray()
 #
 #  
 #
-tray.AddService("OnlyOneModuleFibonacciServiceFactory", "fibi")(
-    ("modulename", "sees_fib"),
-    ("servicename", "where_it_sees_it")
-    )
+tray.AddService("OnlyOneModuleFibonacciServiceFactory", "fibi",
+                modulename = "sees_fib",
+                servicename = "where_it_sees_it"
+                )
 
 tray.AddModule("BottomlessSource","bottomless")
 

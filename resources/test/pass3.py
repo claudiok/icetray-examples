@@ -46,18 +46,18 @@ tray = I3Tray()
 #
 # the muxer gets events from the services above...
 #
-tray.AddModule("I3Reader","reader")(
-    ("Filename", "pass1.i3")
-    )
+tray.AddModule("I3Reader","reader",
+               Filename = "pass1.i3"
+               )
 
 #
 # You can imagine what this one does. it does.
 #
 
-tray.AddModule("SimpleReconstruction","simplereco")(
-    ("InputHits","InIceRecoHitSeries"),
-    ("OutputResult","pass1"),
-    )
+tray.AddModule("SimpleReconstruction","simplereco",
+               InputHits = "InIceRecoHitSeries",
+               OutputResult = "pass1",
+               )
 
 #
 # the dump shows you what's going by as it happens
@@ -67,9 +67,9 @@ tray.AddModule("Dump","dump")
 
 # Write the data with our new reconstruction.  Same usage of the
 # writer as in pass1.
-tray.AddModule("I3Writer","writer")(
-    ("filename", "pass3.i3")
-    )
+tray.AddModule("I3Writer","writer",
+               filename = "pass3.i3"
+               )
 
 #
 # The usual trashcan-at-the-end idiom.

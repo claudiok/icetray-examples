@@ -26,10 +26,10 @@ tray = I3Tray()
 #   context.  We don't know w/o looking at the code how many
 #   it will create.
 #
-tray.AddService("I3GSLRandomServiceFactory", "servfactory")(
-    ("InstallServiceAs", "gslrandomserv"),
-    ("Seed", 31337)
-    )
+tray.AddService("I3GSLRandomServiceFactory", "servfactory",
+                InstallServiceAs = "gslrandomserv",
+                Seed = 31337
+                )
 
 tray.AddModule("BottomlessSource","bottomless")
 
@@ -37,10 +37,10 @@ tray.AddModule("BottomlessSource","bottomless")
 # unlike the previous script, this one succeeds since the factory above gives
 # every module its own service.
 #
-tray.AddModule("UseRandomV2", "userand")(
-    ("I3RandomServiceKey", "gslrandomserv"),
-    ("PutWhere", "randomdouble")
-    )
+tray.AddModule("UseRandomV2", "userand",
+               I3RandomServiceKey = "gslrandomserv",
+               PutWhere = "randomdouble"
+               )
 
 def p(frame):
     print frame

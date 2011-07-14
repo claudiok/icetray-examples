@@ -24,9 +24,9 @@ load("libdataio")
 tray = I3Tray()
 
 # The reader
-tray.AddModule("I3Reader","reader")(
-    ("Filename", "pass1.i3")
-    )
+tray.AddModule("I3Reader","reader",
+               Filename = "pass1.i3"
+               )
 
 # the dump shows you what's going by as it happens
 tray.AddModule("Dump","dump")

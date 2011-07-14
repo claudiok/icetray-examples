@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #
 #
-# Pass 1: this does a first pass through the data and uses the Muxer
-# to talks to the various messy services with complicated
-# configurations and filesystem dependencies.  It generates
+# Pass 1: this does a first pass through the data and uses I3Reader
+# to read a canned $I3_PORTS/test-data file.  It generates
 # "pass1.i3", a platform-independent datafile that you can read with
 # just a few lines of configuration (see pass2.py...)
 #
@@ -31,23 +30,36 @@ runfile = tools + "/test-data/2006data/Run00089508.i3.gz"
 
 tray = I3Tray()
 
+# Use the I3Reader service, to grab data from an existing .i3 file
+
 tray.AddModule("I3Reader","i3reader", Filename=runfile, SkipKeys=["I3PfFilterMask"])
 
-# This file is super old
-tray.AddModule("QConverter", "qify")
-tray.AddModule(lambda fr: False, "dropps") # Drop all existing P-frames
+# This file is old, written before q-frames.  The QConverter module
+# maps each old "P" frame into one Q and one P frames.  But here, we 
+# use the "no p frame mode", so everything from the file goes into the
+# Q frame (mapping all old P frame contents into the new Q frame)
+
+tray.AddModule("QConverter", "qify", WritePFrame=False)
 
 #
-# A DOMCalibrator.  Obviously.
+# A DOMCalibrator.  Obviously.  This works on the Q-frame
 #
 tray.AddModule("I3DOMcalibrator","merge")
  
 #
 # And an appropriately named but nonetheless cute feature
-# extractor.
+# extractor.  This works on the Q frame
 #
 tray.AddModule("DumbFeatureExtractor","dumbfe")
  
+
+# Now, let's use the NullSplitter to make an empty P frame after each 
+# Q frame.  All "original" frame objects from the file live in the Q frame
+# the new P frame only contains a I3EventHeader, with the appropriate stream
+# set
+
+tray.AddModule("I3NullSplitter","nullsplit")
+
 #
 # This is the very convenient "Dump" module which spits out the frames
 # as they go by.  This is one of icecube's standard modules (in
@@ -55,12 +67,10 @@ tray.AddModule("DumbFeatureExtractor","dumbfe")
 #
 tray.AddModule("Dump","dump")
 
-# Prepare for high-level processing
-tray.AddModule("I3NullSplitter","nullsplit")
-
 #
 # And this is the magic writer.  We will make it work harder later.
 #
+
 tray.AddModule("I3Writer","writer")(
     ("filename", "pass1.i3")
     )
