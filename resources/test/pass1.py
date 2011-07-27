@@ -26,13 +26,13 @@ load("libexamples")
 # real scripting language at one's disposal for this kind of thing.
 #
 tools = expandvars("$I3_PORTS")
-runfile = tools + "/test-data/2006data/Run00089508.i3.gz"
+runfile = tools + "/test-data/2007data/2007_I3Only_Run109732_Nch20.i3.gz"
 
 tray = I3Tray()
 
 # Use the I3Reader service, to grab data from an existing .i3 file
 
-tray.AddModule("I3Reader","i3reader", Filename=runfile, SkipKeys=["I3PfFilterMask"])
+tray.AddModule("I3Reader","i3reader", Filename=runfile, SkipKeys=["I3PfFilterMask","CalibratedATWD","CalibratedFADC"])
 
 # This file is old, written before q-frames.  The QConverter module
 # maps each old "P" frame into one Q and one P frames.  But here, we 
@@ -90,5 +90,5 @@ tray.AddModule("TrashCan", "the can");
 # it to stop (via RequestSuspension()).  We'll do a few frames so
 # there's a chunk of data involved.
 #
-tray.Execute()
+tray.Execute(15)
 tray.Finish()

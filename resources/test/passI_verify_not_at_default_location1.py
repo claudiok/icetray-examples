@@ -41,6 +41,7 @@ try:
     tray.Execute(30)
     tray.Finish()
 except:
+    print "Tray failed as it should have"
     sys.exit(0)
 else:
     sys.exit(1)
