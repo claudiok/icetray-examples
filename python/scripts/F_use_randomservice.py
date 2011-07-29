@@ -12,7 +12,7 @@ def main():
 
     rng = phys_services.I3GSLRandomService(31334)
 
-    print [rng.Gaus(0,1) for x in xrange(100)]
+    print [rng.gaus(0,1) for x in xrange(100)]
 
 
 if __name__ == "__main__":
