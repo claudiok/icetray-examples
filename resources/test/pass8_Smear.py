@@ -24,7 +24,7 @@ tray.AddModule("I3Reader","i3reader",
                SkipKeys = ["llh.*", "mutineer"]
                )
 
-tray.AddService("I3SPRNGRandomServiceFactory", "random")
+tray.AddService("I3GSLRandomServiceFactory", "random")
 
 tray.AddModule("PutParticle", "putter",
                Zenith = 0,
