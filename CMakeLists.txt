@@ -5,6 +5,10 @@ i3_project(examples
   PYTHON_DIR python
   DOCS_DIR resources/docs)
 
+if(USE_ROOT)
+  set(OPTIONAL_TOOLS root)
+endif(USE_ROOT)
+
 i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx  
   private/modules/LessDumbFeatureExtractor.cxx
   private/modules/DeltaAngle.cxx			 
@@ -23,7 +27,7 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   private/services/*.cxx 
   private/services/*/*.cxx
   USE_PROJECTS icetray dataclasses phys-services
-  USE_TOOLS boost root log4cplus python
+  USE_TOOLS boost log4cplus python ${OPTIONAL_TOOLS}
   ROOTCINT public/examples/modules/SimpleReconstructionParams.h
   )
 
