@@ -10,7 +10,6 @@ load("libphys-services")
 load("libdaq-decode")
 load("libpayload-parsing")
 load("libI3Db")
-load("libDOMcalibrator")
 load("libicepick")
 
 workspace = expandvars("$I3_SRC")
@@ -64,10 +63,6 @@ tray.AddModule(data_check,"daqthere",Streams=[icetray.I3Frame.DAQ])
 
 tray.AddModule("I3FrameBufferDecode","i3decode",
                BufferID = "I3DAQData"
-               )
-
-tray.AddModule("I3DOMcalibrator","calibrate-inice",
-               InputRawDataName = "InIceRawData"
                )
 
 hitThreshold = 10

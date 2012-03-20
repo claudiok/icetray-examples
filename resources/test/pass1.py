@@ -17,7 +17,6 @@ import sys
 load("libicetray")
 load("libdataclasses")
 load("libphys-services")
-load("libDOMcalibrator")
 load("libdataio")
 load("libexamples")
 
@@ -41,11 +40,6 @@ tray.AddModule("I3Reader","i3reader", Filename=runfile, SkipKeys=["I3PfFilterMas
 
 tray.AddModule("QConverter", "qify", WritePFrame=False)
 
-#
-# A DOMCalibrator.  Obviously.  This works on the Q-frame
-#
-tray.AddModule("I3DOMcalibrator","merge")
- 
 #
 # And an appropriately named but nonetheless cute feature
 # extractor.  This works on the Q frame

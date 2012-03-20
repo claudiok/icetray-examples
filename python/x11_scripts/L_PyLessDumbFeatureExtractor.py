@@ -11,19 +11,12 @@ def main():
 
     from I3Tray import I3Tray
 
-    icetray.load("libDOMcalibrator")
-
     tray = I3Tray()
 
     tray.AddModule("I3Reader","i3reader",
                    Filename = util.icdata_2007,
                    SkipKeys = ["CalibratedATWD", "CalibratedFADC"] # our FE will need these slots
                    )
-
-    #
-    # A DOMCalibrator.  Obviously.
-    #
-    tray.AddModule("I3DOMcalibrator","merge")
 
     #
     # And an appropriately named but nonetheless cute feature
