@@ -1,4 +1,3 @@
-#include <icetray/load_project.h>
 #include <examples/services/FibonacciService.h>
 #include <icetray/python/context_suite.hpp>
 #include <iostream>
@@ -12,7 +11,6 @@ void blam()
 
 BOOST_PYTHON_MODULE(examples)
 {
-  load_project("libexamples", false);
   def("blam", blam);
 
   // Pull a SequenceService out of the I3Context

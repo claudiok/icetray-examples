@@ -18,8 +18,8 @@ from os.path import expandvars
 import os
 import sys
 
-load("libicetray")
-load("libdataio")
+from icecube import icetray 
+from icecube import dataio 
 
 tray = I3Tray()
 

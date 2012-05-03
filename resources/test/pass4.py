@@ -16,11 +16,11 @@ from os.path import expandvars
 import os
 import sys
 
-load("libicetray")
-load("libdataclasses")
-load("libdataio")
-load("libexamples")
-load("libmutineer")
+from icecube import icetray 
+from icecube import dataclasses 
+from icecube import dataio 
+from icecube import examples 
+from icecube import mutineer 
 
 tray = I3Tray()
 

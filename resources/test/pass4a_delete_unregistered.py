@@ -16,9 +16,9 @@ from os.path import expandvars
 import os
 import sys
 
-load("libicetray")
-load("libdataclasses")
-load("libdataio")
+from icecube import icetray 
+from icecube import dataclasses 
+from icecube import dataio 
 
 tray = I3Tray()
 

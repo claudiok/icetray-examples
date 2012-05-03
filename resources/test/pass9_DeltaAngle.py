@@ -14,10 +14,10 @@ from os.path import expandvars
 import os
 import sys
 
-load("libicetray")
-load("libdataclasses")
-load("libdataio")
-load("libexamples") 
+from icecube import icetray 
+from icecube import dataclasses 
+from icecube import dataio 
+from icecube import examples 
 
 tray = I3Tray()
 

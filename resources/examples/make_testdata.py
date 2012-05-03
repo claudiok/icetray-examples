@@ -4,13 +4,13 @@ from I3Tray import *
 from os.path import *
 import sys
 
-load("libdataclasses")
-load("libdataio")
-load("libphys-services")
-load("libdaq-decode")
-load("libpayload-parsing")
-load("libI3Db")
-load("libicepick")
+from icecube import dataclasses 
+from icecube import dataio 
+from icecube import phys_services 
+from icecube import daq_decode 
+from icecube import payload_parsing 
+from icecube import I3D 
+from icecube import icepick 
 
 workspace = expandvars("$I3_SRC")
 

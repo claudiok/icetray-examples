@@ -12,10 +12,10 @@ from os.path import expandvars
 import os
 import sys
 
-load("libicetray")
-load("libdataclasses")
-load("libexamples") 
-load("libphys-services") 
+from icecube import icetray 
+from icecube import dataclasses 
+from icecube import examples 
+from icecube import phys_services 
 
 tray = I3Tray()
 

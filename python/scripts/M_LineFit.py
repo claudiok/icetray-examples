@@ -10,7 +10,7 @@ from icecube import util
 
 tray = I3Tray()
 
-load("libdataio")
+from icecube import dataio 
         
 tray.AddModule("I3Reader", "reader",
                FileName= util.icdata_2007
