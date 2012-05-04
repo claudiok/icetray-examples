@@ -2,6 +2,8 @@
 #include <icetray/python/context_suite.hpp>
 #include <iostream>
 
+#include <icetray/load_project.h>
+
 using namespace boost::python;
 
 void blam()
@@ -11,6 +13,9 @@ void blam()
 
 BOOST_PYTHON_MODULE(examples)
 {
+
+  load_project("examples", false); 
+
   def("blam", blam);
 
   // Pull a SequenceService out of the I3Context
