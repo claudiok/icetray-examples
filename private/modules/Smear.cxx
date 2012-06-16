@@ -14,11 +14,7 @@ using namespace std;
 I3_MODULE(Smear);
  
 Smear::Smear (const I3Context& context) : 
-  I3Module(context), 
-  rnd(context_.Get<I3RandomService>()) // notice we keep a reference
-				       // to whatever RandomService
-				       // the tray has decided to
-				       // provide us through our I3Context
+  I3Module(context)
 {
   // tell the framework that we have an outbox...
   AddOutBox("OutBox");
@@ -44,6 +40,11 @@ Smear::Smear (const I3Context& context) :
 void 
 Smear::Configure()
 {
+  rnd = context_.Get<I3RandomServicePtr>(); // notice we keep a reference
+				            // to whatever RandomService
+				            // the tray has decided to
+				            // provide us through our I3Context
+
   // this fetches the configured values from the steering file and
   // puts them into the local variables.
   GetParameter("Src", seed_key_);
@@ -88,9 +89,9 @@ Smear::Physics(I3FramePtr frame)
   if (sigma_ > 0)
     while (true)
       {
-	smear = rnd.Uniform(0, M_PI);
+	smear = rnd->Uniform(0, M_PI);
 	double reject_prob = std::sin(smear) * gaussian(smear);
-	double reject = rnd.Uniform(0, max_y);
+	double reject = rnd->Uniform(0, max_y);
 
 	if (reject > reject_prob)
 	  continue; // skip it, try another.

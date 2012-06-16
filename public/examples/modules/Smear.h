@@ -23,7 +23,7 @@ class Smear : public I3Module
   double sigma_;
   double constant_;
 
-  I3RandomService &rnd;
+  I3RandomServicePtr rnd;
 
   // and thats a gaussian.  We can't use the I3RandomService's Gaus()
   // as we're acutally smearing by the "Turcan Distribution" sin(x) *
