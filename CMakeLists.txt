@@ -52,11 +52,7 @@ i3_test_scripts(resources/test/pass1.py
   resources/test/pass8_Smear.py
   resources/test/passC_singleton_fibonacci.py
   resources/test/passD_singleton_fibonacci_is_a_bad_idea.py
-  resources/test/passE_one_fibonacci_per_module.py
   resources/test/passF_fibonacci_is_hiding_at_different_name.py
-  resources/test/passG_module_looks_for_fibonacci_in_particular_place.py
-  resources/test/passH_one_fibonacci_one_module.py
-  resources/test/passI_verify_not_at_default_location1.py
   ${ROOT_TESTS}
 
   python/scripts/A0_new_config_syntax.py

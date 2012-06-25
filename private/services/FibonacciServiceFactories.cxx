@@ -11,8 +11,5 @@ I3_SERVICE_FACTORY(OnePerModuleFibonacciServiceFactory);
 
 I3_SERVICE_FACTORY(NamedFibonacciServiceFactory);
 
-#include <examples/services/OnlyOneModuleFibonacciServiceFactory.h>
-
-I3_SERVICE_FACTORY(OnlyOneModuleFibonacciServiceFactory);
 
 
