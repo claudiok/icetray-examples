@@ -27,7 +27,7 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   private/services/*.cxx 
   private/services/*/*.cxx
   USE_PROJECTS icetray dataclasses phys-services
-  USE_TOOLS boost log4cplus python ${OPTIONAL_TOOLS}
+  USE_TOOLS boost python ${OPTIONAL_TOOLS}
   ROOTCINT public/examples/modules/SimpleReconstructionParams.h
   )
 
