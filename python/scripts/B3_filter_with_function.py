@@ -40,7 +40,7 @@ def main():
         showint.name = whichint
         def f(frame):
             i = frame.Get(showint.name)
-            print ">>>> I3Int @ ", showint.name, "==", i.value, "<<<<"
+            print(">>>> I3Int @ %s == %d <<<<" % (showint.name, i.value))
         return f
 
     tray.AddModule(showint("sevenseven"), "si")

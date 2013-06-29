@@ -26,7 +26,7 @@ class LessDumbFeatureExtractor(icetray.I3Module):
             self.PushFrame(frame)
             return
         
-        print "yah launches"
+        print("yah launches")
 
         ohits = dataclasses.I3RecoHitSeriesMap()
         opulses = dataclasses.I3RecoPulseSeriesMap()
@@ -35,7 +35,7 @@ class LessDumbFeatureExtractor(icetray.I3Module):
             om = entry.key()
             launch = entry.data()[0]
             waveform = launch.GetRawATWD(0)
-            print waveform
+            print(waveform)
 
             maxbin = 0
             maxvalue = waveform[0];
@@ -44,7 +44,7 @@ class LessDumbFeatureExtractor(icetray.I3Module):
                     maxvalue = waveform[i]
                     maxbin = i
                     
-            print maxbin, maxvalue
+            print(maxbin, maxvalue)
 
             hit = dataclasses.I3RecoHit()
             hittime = launch.GetStartTime() + maxbin * 3.3

@@ -24,7 +24,7 @@ class Calculator :
         self.__discovery = discovery
 
     def fac(self,x) :
-        if self.__facdict.keys().count(x) != 0 : return self.__facdict[x]
+        if list(self.__facdict.keys()).count(x) != 0 : return self.__facdict[x]
         if x > 1 :
             # print "------------------Calculating Factorial of " + str(x)
             toreturn = x * self.fac(x-1)
@@ -89,7 +89,7 @@ class Calculator :
         firstpass = True
         while cupper < 0 :
             alower, aupper = self.__acceptance_interval(nu,expBack)
-            if firstpass and alower > nObs : print "did it **************"
+            if firstpass and alower > nObs : print("did it **************")
             # print "Middle Loop: nu: " + str(nu) + " lower: " + str(alower) + " upper: " + str(aupper) + " nObs: " + str(nObs)
             if alower > nObs : cupper = nu
             nu += 1 / float(self.__accuracy)
@@ -112,7 +112,7 @@ class Calculator :
             if nObs < expBack : pbest = self.poisson(expBack,nObs)
             else : pbest = self.poisson(nObs,nObs)
             ratio = p / pbest
-            if rDict.keys().count(ratio) > 0 : rDict[ratio + .00000001] = [p,nObs]
+            if list(rDict.keys()).count(ratio) > 0 : rDict[ratio + .00000001] = [p,nObs]
             else : rDict[ratio] = [p,nObs]
             nObs += 1
             pTot += p
@@ -135,5 +135,5 @@ class Calculator :
             if pTot > self.__conflevel : break
 
         if pTot < self.__conflevel and nu != 0 :
-            print "mrfCalculator: Did not complete enough calculations.  Your answer could be wrong.  pTot: " + str(pTot) + " nu: " + str(nu) + " expBack: " + str(expBack) + " alower: " + str(alower) + " aupper: " + str(aupper)
+            print("mrfCalculator: Did not complete enough calculations.  Your answer could be wrong.  pTot: " + str(pTot) + " nu: " + str(nu) + " expBack: " + str(expBack) + " alower: " + str(alower) + " aupper: " + str(aupper))
         return alower, aupper

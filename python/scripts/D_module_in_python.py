@@ -29,7 +29,7 @@ def main():
             i = I3Int(self.intval)
             frame.Put(self.where, i)
             self.PushFrame(frame)
-            print ">>>>>>>>>> PyPhysics, frame has keys:", frame.keys()
+            print(">>>>>>>>>> PyPhysics, frame has keys: %s" % (list(frame.keys())))
 
     tray.AddModule(IntAdder, "mod",
                    value = 17,

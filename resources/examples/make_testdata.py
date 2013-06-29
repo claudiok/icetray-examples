@@ -17,7 +17,7 @@ workspace = expandvars("$I3_SRC")
 dbserver = "dbs2.icecube.wisc.edu"
 
 if len(sys.argv) != 2:
-    print "Must run with an arguement specifying the full path of the PFRaw file."
+    print("Must run with an arguement specifying the full path of the PFRaw file.")
     sys.exit(1)
 infile = sys.argv[1]
 

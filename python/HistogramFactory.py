@@ -160,7 +160,7 @@ plots = (  []
 
 for plot in plots:
     pylab.clf()
-    print plot.name
+    print(plot.name)
     datas=[]
 
     for source in sources:
@@ -183,7 +183,7 @@ for plot in plots:
             plot.plottype(bins,data,label=source.GetName(),color=source.color,linestyle='steps')
         except:
             pass
-        print "\t", source.name, sum(data)
+        print("\t %s %e" % (source.name, sum(data)))
 
         datas.append(data)
 

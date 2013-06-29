@@ -79,15 +79,15 @@ class ThroughgoingTrack(icetray.I3Module):
 
         hits = dataclasses.I3RecoHitSeriesMap()
         direction = sph2car(theta, phi, r)
-        print direction
+        print(direction)
 
         times = n.linspace(0, 40000, 100)
 
         for t in times:
-            print t, '\r'
+            print('%.2f\r' % t)
             newpos = initpos + (t * direction)
 
-            for (omkey, ompos) in self.mygeo.iteritems():
+            for (omkey, ompos) in self.mygeo.items():
 
                 if omkey in hits:
                     continue

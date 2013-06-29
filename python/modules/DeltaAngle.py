@@ -50,4 +50,4 @@ class DeltaAngle(icetray.I3Module):
             (data, bins) = numpy.histogram(self.data, bins=18, range=(0.,180.))
             pylab.plot(bins[:-1], data, linestyle='steps')
             pylab.savefig("delta%06d.png" % self.nevents)
-            print ">>", self.nevents
+            print(">> %d" % self.nevents)

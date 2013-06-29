@@ -31,7 +31,7 @@ def main():
 
     def showvalue(frame):
         d = frame.Get("here")
-        print "Value is", d.value
+        print("Value is %f" % d.value)
 
     tray.AddModule(showvalue, "sv")
 

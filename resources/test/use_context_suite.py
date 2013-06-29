@@ -19,8 +19,8 @@ class FibCheck(icetray.I3Module):
 		pass
 	def DAQ(self, frame):
 		self.fibs = examples.SequenceService.from_context(self.context, "fibi")
-		nums = [self.fibs.next() for i in xrange(10)]
-		print 'I got some numbers for ya:', nums
+		nums = [next(self.fibs) for i in range(10)]
+		print('I got some numbers for ya: %s' % (nums, ))
 		self.PushFrame(frame)
 		
 tray.AddModule("I3InfiniteSource", "gaping_maw")

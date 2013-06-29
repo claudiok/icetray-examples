@@ -154,7 +154,7 @@ def list2ROOT(list,name,title,nbins,minx,maxx) :
 
 def lists2ROOT(list,weights,name,title,nbins,minx,maxx) :
     if len(list) != len(weights) :
-        print "List of weights should be as long as list of values."
+        print("List of weights should be as long as list of values.")
         return False
 
     from ROOT import TH1F

@@ -80,8 +80,8 @@ class BrowserFrame(wx.Frame):
         elif col.type=='uint32' and max(col[:])-min(col[:]):
             a=i3hist(col[:],bins=max(col[:])-min(col[:])+1).draw()
             for n in range(max(col[:])+1):
-                print n,sum(col[:]==n)
-            print a.hist,a.le
+                print("%d %d" % (n,sum(col[:]==n)))
+            print("%s %s" % (a.hist,a.le))
         else:
             i3hist(col[:],bins=50).draw()
         pylab.show()

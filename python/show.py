@@ -13,7 +13,7 @@ def main():
 
     frame = i3f.pop_physics()
 
-    print frame
+    print(frame)
 
 if __name__ == '__main__':
     main()

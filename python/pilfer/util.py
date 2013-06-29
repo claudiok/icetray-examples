@@ -15,13 +15,13 @@ def all_physics(files, verbose=False, update_frequency=100):
     for f in files:
         i3f = icecube.dataio.I3File(f)
         if verbose:
-            print "%s..." % f
+            print("%s..." % f)
         #i3f.open_file(f)
         phys = i3f.pop_physics()
         while i3f.more():
             nframes += 1
             if verbose and nframes % update_frequency == 0:
-                print '%15d\r' % nframes,
+                print('%15d\r' % nframes)
                 sys.stdout.flush()
             yield phys
             phys = i3f.pop_physics()

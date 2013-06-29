@@ -10,10 +10,10 @@ import unittest
 
 class Test(unittest.TestCase):
     def test(self):
-        print "foo.  no tests here."
+        print("foo.  no tests here.")
 
     def test2(self):
-        print "foo.  no tests here."
+        print("foo.  no tests here.")
 
 if __name__ == '__main__':
     unittest.main()

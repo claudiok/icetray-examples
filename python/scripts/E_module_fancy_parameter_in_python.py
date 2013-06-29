@@ -21,7 +21,7 @@ def main():
 
         def Configure(self):
             self.d = self.GetParameter("values")
-            print ">>>>> Configured with", self.d
+            print(">>>>> Configured with %s" % self.d)
 
         def Physics(self, frame):
             for (k,v) in self.d.items():

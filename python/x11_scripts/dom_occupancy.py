@@ -35,7 +35,7 @@ def main():
     pylab.title("DOM Occupancy,  %d events" % nevent)
     pylab.colorbar()
     pylab.savefig('dom_occupancy.png')
-    print 'saved plot to "dom_occupancy.png"'
+    print('saved plot to "dom_occupancy.png"')
 
 if __name__ == '__main__':
     main()

@@ -39,7 +39,7 @@ try:
     tray.Execute(30)
     tray.Finish()
 except:
-    print "Tray threw an exception as it should have"
+    print("Tray threw an exception as it should have")
     sys.exit(0)
 else:
     sys.exit(1)

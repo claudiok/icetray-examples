@@ -21,7 +21,7 @@ p0=[900,0,1,0]
 
 p1,fitstatus=scipy.optimize.leastsq(residuals, p0, args=(bins,data ), maxfev=2000)
 
-print p1
+print(p1)
 
 pylab.plot(bins,data,ls='steps')
 pylab.plot(bins,gaussian(bins,p1))

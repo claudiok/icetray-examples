@@ -14,12 +14,12 @@ class GThenEmptyPhysics(icetray.I3Module):
 
     def Configure(self):
         fname = self.GetParameter('GCD')
-        print "opening", fname
+        print("opening %s" % fname)
         self.i3f = dataio.I3File(fname)
         
     def Process(self):
         fr = self.i3f.pop_frame(icetray.I3Frame.Geometry)
-        print fr
+        print(fr)
         if not fr:
             fr = icetray.I3Frame(icetray.I3Frame.Physics)
 

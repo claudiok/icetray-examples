@@ -49,7 +49,7 @@ def main():
             if self.nevents % 1500 == 0:
                 (data, bins) = numpy.histogram(self.data, 50)
                 plot(bins, data, linestyle='steps')
-                print ">>", self.nevents
+                print(">> %d" % self.nevents)
 
     tray.AddModule(Plotter, "plot",
                    where="here")

@@ -43,8 +43,8 @@ tray.AddModule("UseRandomV2", "userand",
                )
 
 def p(frame):
-    print frame
-    print frame['randomdouble'].value
+    print(frame)
+    print(frame['randomdouble'].value)
 
 tray.AddModule(p, 'p')
 
