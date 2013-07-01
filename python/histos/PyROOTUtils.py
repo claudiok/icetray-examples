@@ -166,7 +166,7 @@ def hists2stack(dict,path = "",norm = "",scale = "",tlegend = None) :
     from os.path import split,splitext
     from ROOT import THStack,TLegend,kWhite
 
-    firsthist = dict.values()[0]
+    firsthist = list(dict.values())[0]
     stack = THStack(firsthist.GetTitle().split()[0] + "stack",firsthist.GetTitle())
     legend = None
     if tlegend == None : legend = TLegend(0.8,0.85,1.0,1.0)
