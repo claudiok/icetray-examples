@@ -1,2 +1,2 @@
-from ConstantService import ConstantService
+from icecube.examples.services.ConstantService import ConstantService
 

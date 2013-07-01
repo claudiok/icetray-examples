@@ -6,7 +6,7 @@ import sys
 from I3Tray import *
 from loot import *
 from glob import glob
-import histos.WeightedHistogram
+from icecube.examples import histos.WeightedHistogram
 from math import *
 import pylab
 
@@ -27,7 +27,7 @@ i3file.close()
 histogram=histos.WeightedHistogram.WeightedHistogram(MinEnergyLog, MaxEnergyLog, Ebins)
 
 for file in sourcefiles:
-    print "reading", file
+    print("reading %s" % file)
     i3file = dataio.I3File(file)
     while i3file.more():
         frame = i3file.pop_physics()
@@ -37,6 +37,6 @@ for file in sourcefiles:
 pylab.clf()
 pylab.ylabel("Aeff [m^2]")
 pylab.xlabel("log10(E/Gev)")
-print histogram.getXs(),histogram.getYs()
+print(histogram.getXs(),histogram.getYs())
 pylab.semilogy(histogram.getXs()+[9],histogram.getYs()+[0],linestyle='steps')
 pylab.show()

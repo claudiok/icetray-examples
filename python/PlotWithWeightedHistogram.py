@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import histos.WeightedHistogram
+from icecube.examples import histos.WeightedHistogram
 import random
 
 wh = histos.WeightedHistogram.WeightedHistogram(0, 18, 5)

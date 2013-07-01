@@ -1,2 +1,2 @@
-from util import *
+from icecube.examples.pilfer.util import *
 
