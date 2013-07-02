@@ -6,7 +6,7 @@ import sys
 from I3Tray import *
 from loot import *
 from glob import glob
-from icecube.examples import histos.WeightedHistogram
+from icecube.examples.histos import WeightedHistogram
 from math import *
 import pylab
 
@@ -24,7 +24,7 @@ MaxEnergyLog=weight["MaxEnergyLog"]
 DeltaLogE=(MaxEnergyLog-MinEnergyLog)/Ebins
 i3file.close()
 
-histogram=histos.WeightedHistogram.WeightedHistogram(MinEnergyLog, MaxEnergyLog, Ebins)
+histogram=WeightedHistogram.WeightedHistogram(MinEnergyLog, MaxEnergyLog, Ebins)
 
 for file in sourcefiles:
     print("reading %s" % file)

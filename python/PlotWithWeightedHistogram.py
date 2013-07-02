@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-from icecube.examples import histos.WeightedHistogram
+from icecube.examples.histos import WeightedHistogram
 import random
 
-wh = histos.WeightedHistogram.WeightedHistogram(0, 18, 5)
+wh = WeightedHistogram.WeightedHistogram(0, 18, 5)
 
 for x in range(19):
     wh.fill(x, (x+1)*random.random())
