@@ -1,4 +1,5 @@
 #include <examples/services/FibonacciService.h>
+#include <examples/MutineerTrack.h>
 #include <icetray/python/context_suite.hpp>
 #include <iostream>
 
@@ -23,5 +24,11 @@ BOOST_PYTHON_MODULE(examples)
     .def(icetray::python::context_suite<SequenceService>())
     .def("next", &SequenceService::next)
   ;
+
+  class_<MutineerTrack, boost::shared_ptr<MutineerTrack>, bases<I3Particle> >("MutineerTrack")
+    .def_readwrite("ye", &MutineerTrack::ye)
+    .def_readwrite("scurvy", &MutineerTrack::scurvy)
+    .def_readwrite("dogs", &MutineerTrack::dogs)
+    ;
 }
 

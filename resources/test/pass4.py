@@ -20,7 +20,7 @@ from icecube import icetray
 from icecube import dataclasses 
 from icecube import dataio 
 from icecube import examples 
-from icecube import mutineer 
+from icecube.examples.mutineer import MutineerModule
 
 tray = I3Tray()
 
@@ -31,7 +31,7 @@ tray.AddModule("I3Reader","reader",
 
 # The Mutineer module just puts things in the frame that we dont have
 # code for.  We filter this thing out later.
-tray.AddModule("MutineerModule", "arrr")
+tray.AddModule(MutineerModule, "arrr")
 
 # Write the data with our new reconstruction.  Same usage of the
 # writer as in pass1.

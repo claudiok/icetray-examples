@@ -26,6 +26,7 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   private/modules/UseRandomV2.cxx
   private/services/*.cxx 
   private/services/*/*.cxx
+  private/examples/MutineerTrack.cxx
   USE_PROJECTS icetray dataclasses phys-services
   USE_TOOLS boost python ${OPTIONAL_TOOLS}
   ROOTCINT public/examples/modules/SimpleReconstructionParams.h
@@ -53,17 +54,16 @@ i3_test_scripts(resources/test/pass1.py
   resources/test/passC_singleton_fibonacci.py
   resources/test/passD_singleton_fibonacci_is_a_bad_idea.py
   resources/test/passF_fibonacci_is_hiding_at_different_name.py
+  resources/test/A0_new_config_syntax.py
+  resources/test/A1_pass_i3int_to_module.py
+  resources/test/B0_pass_function_to_i3tray.py
+  resources/test/B2_pass_closure_to_i3tray.py
+  resources/test/B3_filter_with_function.py
+  resources/test/D_module_in_python.py
+  resources/test/E_module_fancy_parameter_in_python.py
+  resources/test/F_use_randomservice.py
+  resources/test/G_pass_randomservice_as_param_to_cpp_module.py
+  resources/test/I_cpp_uses_python_impl_of_randomservice.py
   ${ROOT_TESTS}
-
-  python/scripts/A0_new_config_syntax.py
-  python/scripts/A1_pass_i3int_to_module.py
-  python/scripts/B0_pass_function_to_i3tray.py
-  python/scripts/B2_pass_closure_to_i3tray.py
-  python/scripts/B3_filter_with_function.py
-  python/scripts/D_module_in_python.py
-  python/scripts/E_module_fancy_parameter_in_python.py
-  python/scripts/F_use_randomservice.py
-  python/scripts/G_pass_randomservice_as_param_to_cpp_module.py
-  python/scripts/I_cpp_uses_python_impl_of_randomservice.py
   
   )
