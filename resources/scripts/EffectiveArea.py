@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 
 #this script automatically generates massive amounts of histograms
-
 import sys
-from I3Tray import *
-from loot import *
-from glob import glob
 from icecube.examples.histos import WeightedHistogram
-from math import *
+from math import pi
+from math import cos
 import pylab
 
 Ebins=8*5
