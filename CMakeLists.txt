@@ -32,8 +32,12 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   ROOTCINT public/examples/modules/SimpleReconstructionParams.h
   )
 
-add_subdirectory(private/pybindings)
-
+i3_add_pybindings(examples
+  private/pybindings/module.cxx
+  USE_TOOLS boost python 
+  USE_PROJECTS icetray dataclasses examples
+  )
+	
 if(USE_ROOT)
   set(ROOT_TESTS 
 	resources/test/pass9_DeltaAngle.py
