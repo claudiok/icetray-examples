@@ -26,8 +26,6 @@ Demonstration of core icetray functionality
 
 .. autofunction:: icecube.examples.scripts.G_pass_randomservice_as_param_to_cpp_module.main
 
-.. autofunction:: icecube.examples.scripts.H_pass_randomservice_as_param_to_pymodule.main
-
 .. autofunction:: icecube.examples.scripts.I_cpp_uses_python_impl_of_randomservice.main
 
 More physicsy stuff
