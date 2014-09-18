@@ -33,12 +33,6 @@ More physicsy stuff
 
 .. autofunction:: icecube.examples.scripts.J_autoupdating_histogram.main
 
-.. autofunction:: icecube.examples.scripts.K_delang_plot.main
-
-.. autofunction:: icecube.examples.scripts.L_PyLessDumbFeatureExtractor.main
-
-.. autofunction:: icecube.examples.scripts.dom_occupancy.main
-
 .. image:: dom_occupancy.png
    :width: 85%
 
