@@ -2,7 +2,7 @@
 #
 #
 # Pass 1: this does a first pass through the data and uses I3Reader
-# to read a canned $I3_PORTS/test-data file.  It generates
+# to read a canned $I3_TESTDATA file.  It generates
 # "pass1.i3", a platform-independent datafile that you can read with
 # just a few lines of configuration (see pass2.py...)
 #
@@ -24,8 +24,8 @@ from icecube import examples
 # This sets up a bunch of paths of files and stuff.  Nice to have a
 # real scripting language at one's disposal for this kind of thing.
 #
-tools = expandvars("$I3_PORTS")
-runfile = tools + "/test-data/2007data/2007_I3Only_Run109732_Nch20.i3.gz"
+testdata = expandvars("$I3_TESTDATA")
+runfile = testdata + "/2007data/2007_I3Only_Run109732_Nch20.i3.gz"
 
 tray = I3Tray()
 
