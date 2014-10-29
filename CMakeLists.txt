@@ -38,12 +38,12 @@ i3_add_pybindings(examples
   USE_PROJECTS icetray dataclasses examples
   )
 	
-if(USE_ROOT)
+if(USE_ROOT AND SPRNG_FOUND)
   set(ROOT_TESTS 
 	resources/test/pass9_DeltaAngle.py
 	resources/test/passA_smearing_and_TH1s.py
   )
-endif(USE_ROOT)
+endif(USE_ROOT AND SPRNG_FOUND)
 
 i3_test_scripts(resources/test/pass1.py
   resources/test/pass2.py
