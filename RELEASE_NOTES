@@ -1,0 +1,11 @@
+# $Id: $
+# $Author: $
+# $Date: $
+#
+
+November 20, 2014, Alex Olivas  (olivas@icecube.umd.edu)
+--------------------------------------------------------------------
+V14-11-00 
+ o Added I3Cut.py - A simple module that illustrates how to make cuts.
+ o Support for I3_TESTDATA
+ 
