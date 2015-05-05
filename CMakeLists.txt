@@ -9,6 +9,11 @@ if(USE_ROOT)
   set(OPTIONAL_TOOLS root)
 endif(USE_ROOT)
 
+if(USE_CINT)
+  colormsg(HIYELLOW "*** CINT dictionaries are deprecated and will disappear November 1, 2015")
+  set(ROOTCINT "ROOTCINT public/examples/modules/SimpleReconstructionParams.h")
+endif(USE_CINT)
+
 i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx  
   private/modules/LessDumbFeatureExtractor.cxx
   private/modules/DeltaAngle.cxx			 
@@ -29,7 +34,7 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   private/examples/MutineerTrack.cxx
   USE_PROJECTS icetray dataclasses phys-services
   USE_TOOLS boost python ${OPTIONAL_TOOLS}
-  ROOTCINT public/examples/modules/SimpleReconstructionParams.h
+  ${ROOTCINT}
   )
 
 i3_add_pybindings(examples
