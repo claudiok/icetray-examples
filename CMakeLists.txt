@@ -77,4 +77,6 @@ i3_test_scripts(resources/test/pass1.py
   )
 
 # force dependencies
-set_property(TEST examples::pass9_DeltaAngle.py APPEND PROPERTY DEPENDS examples::pass1.py)
+if(USE_ROOT AND SPRNG_FOUND)
+  set_property(TEST examples::pass9_DeltaAngle.py APPEND PROPERTY DEPENDS examples::pass1.py)
+endif(USE_ROOT AND SPRNG_FOUND)
