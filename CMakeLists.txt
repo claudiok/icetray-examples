@@ -32,13 +32,13 @@ i3_add_library(examples private/modules/AlmostSmartFeatureExtractor.cxx
   private/services/*/*.cxx
   private/examples/MutineerTrack.cxx
   USE_PROJECTS icetray dataclasses phys-services
-  USE_TOOLS boost python ${OPTIONAL_TOOLS}
+  USE_TOOLS boost python ${OPTIONAL_TOOLS} scipy
   ROOTCINT public/examples/modules/SimpleReconstructionParams.h
   )
 
 i3_add_pybindings(examples
   private/pybindings/module.cxx
-  USE_TOOLS boost python 
+  USE_TOOLS boost python scipy
   USE_PROJECTS icetray dataclasses examples
   )
 	
