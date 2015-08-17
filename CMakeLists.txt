@@ -5,9 +5,9 @@ i3_project(examples
   PYTHON_DIR python
   DOCS_DIR resources/docs)
 
-if(USE_ROOT)
+if(ROOT_FOUND)
   set(OPTIONAL_TOOLS root)
-endif(USE_ROOT)
+endif(ROOT_FOUND)
 
 if(USE_CINT)
   colormsg(HIYELLOW "*** CINT dictionaries are deprecated and will disappear November 1, 2015")
@@ -42,12 +42,12 @@ i3_add_pybindings(examples
   USE_PROJECTS icetray dataclasses examples
   )
 	
-if(USE_ROOT AND SPRNG_FOUND)
+if(ROOT_FOUND AND SPRNG_FOUND)
   set(ROOT_TESTS 
 	resources/test/pass9_DeltaAngle.py
 	resources/test/passA_smearing_and_TH1s.py
   )
-endif(USE_ROOT AND SPRNG_FOUND)
+endif(ROOT_FOUND AND SPRNG_FOUND)
 
 i3_test_scripts(resources/test/pass1.py
   resources/test/pass2.py
@@ -77,6 +77,6 @@ i3_test_scripts(resources/test/pass1.py
   )
 
 # force dependencies
-if(USE_ROOT AND SPRNG_FOUND)
+if(ROOT_FOUND AND SPRNG_FOUND)
   set_property(TEST examples::pass9_DeltaAngle.py APPEND PROPERTY DEPENDS examples::pass1.py)
-endif(USE_ROOT AND SPRNG_FOUND)
+endif(ROOT_FOUND AND SPRNG_FOUND)
