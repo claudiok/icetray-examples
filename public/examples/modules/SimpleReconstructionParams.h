@@ -29,7 +29,7 @@ class SimpleReconstructionParams : public I3FrameObject
 
 };
 
-// optional but gives some shared_ptr typedefs
+// optional but gives some boost::shared_ptr typedefs
 I3_POINTER_TYPEDEFS(SimpleReconstructionParams);
 
 #endif

@@ -38,7 +38,7 @@ void DumbFeatureExtractor::DAQ(I3FramePtr frame)
   {
     const I3Map<OMKey,I3DOMLaunchSeries>& inIceResponses 
       = frame->Get<I3Map<OMKey,I3DOMLaunchSeries> >(inputResponse_);
-    shared_ptr<I3Map<OMKey,I3RecoHitSeries> > 
+    boost::shared_ptr<I3Map<OMKey,I3RecoHitSeries> > 
       inIceSeries(new I3Map<OMKey,I3RecoHitSeries> );
     for(I3Map<OMKey,I3DOMLaunchSeries>::const_iterator iter = inIceResponses.begin() ; 
 	iter != inIceResponses.end() ; 
@@ -56,7 +56,7 @@ void DumbFeatureExtractor::DAQ(I3FramePtr frame)
   {
     const I3Map<OMKey,I3DOMLaunchSeries>& iceTopResponses 
       = frame->Get<I3Map<OMKey,I3DOMLaunchSeries> >("IceTopRawData");
-    shared_ptr<I3Map<OMKey,I3RecoHitSeries> > 
+    boost::shared_ptr<I3Map<OMKey,I3RecoHitSeries> > 
       iceTopSeries(new I3Map<OMKey,I3RecoHitSeries> );
     for(I3Map<OMKey,I3DOMLaunchSeries>::const_iterator iter = iceTopResponses.begin() ; 
 	iter != iceTopResponses.end() ; 
